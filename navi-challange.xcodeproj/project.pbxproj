@@ -33,6 +33,10 @@
 		92115F8B287046B500F42700 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F8A287046B500F42700 /* UITableViewExtension.swift */; };
 		92115F8D2870472000F42700 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F8C2870472000F42700 /* ProfileVM.swift */; };
 		92115F8F2870476A00F42700 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F8E2870476A00F42700 /* ProfileCoordinator.swift */; };
+		92115F92287060EA00F42700 /* RepoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F91287060EA00F42700 /* RepoVM.swift */; };
+		92115F99287063D900F42700 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F98287063D900F42700 /* ProfileTableViewCell.swift */; };
+		92115F9B28707C6F00F42700 /* UserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F9A28707C6F00F42700 /* UserVM.swift */; };
+		92115F9D287083B800F42700 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F9C287083B800F42700 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		92115F8A287046B500F42700 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		92115F8C2870472000F42700 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		92115F8E2870476A00F42700 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		92115F91287060EA00F42700 /* RepoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoVM.swift; sourceTree = "<group>"; };
+		92115F98287063D900F42700 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		92115F9A28707C6F00F42700 /* UserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVM.swift; sourceTree = "<group>"; };
+		92115F9C287083B800F42700 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +107,8 @@
 				92115F762870044700F42700 /* Models */,
 				92115F82287045BE00F42700 /* Utilities */,
 				92115F7D287044CF00F42700 /* Coordinator */,
-				92115F59286F233100F42700 /* Networking */,
 				92115F802870455B00F42700 /* Modules */,
+				92115F59286F233100F42700 /* Networking */,
 				92115F58286F166F00F42700 /* Resources */,
 				92115F52286F165B00F42700 /* Info.plist */,
 			);
@@ -206,8 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				92115F8E2870476A00F42700 /* ProfileCoordinator.swift */,
-				92115F48286F165600F42700 /* ProfileVC.swift */,
-				92115F8C2870472000F42700 /* ProfileVM.swift */,
+				92115F962870631600F42700 /* Controller */,
+				92115F972870632500F42700 /* View */,
+				92115F952870630A00F42700 /* ViewModel */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -227,8 +236,35 @@
 			children = (
 				92115F882870466C00F42700 /* UIViewExtension.swift */,
 				92115F8A287046B500F42700 /* UITableViewExtension.swift */,
+				92115F9C287083B800F42700 /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		92115F952870630A00F42700 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				92115F8C2870472000F42700 /* ProfileVM.swift */,
+				92115F9A28707C6F00F42700 /* UserVM.swift */,
+				92115F91287060EA00F42700 /* RepoVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		92115F962870631600F42700 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92115F48286F165600F42700 /* ProfileVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		92115F972870632500F42700 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92115F98287063D900F42700 /* ProfileTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,17 +345,21 @@
 				92115F5B286F242600F42700 /* EndpointType.swift in Sources */,
 				92115F84287045D100F42700 /* AppFonts.swift in Sources */,
 				92115F7F2870450400F42700 /* Coordinator.swift in Sources */,
+				92115F92287060EA00F42700 /* RepoVM.swift in Sources */,
+				92115F99287063D900F42700 /* ProfileTableViewCell.swift in Sources */,
 				92115F8F2870476A00F42700 /* ProfileCoordinator.swift in Sources */,
 				92115F892870466C00F42700 /* UIViewExtension.swift in Sources */,
 				92115F49286F165600F42700 /* ProfileVC.swift in Sources */,
 				92115F5F286F261600F42700 /* HTTPMethod.swift in Sources */,
 				92115F782870045600F42700 /* User.swift in Sources */,
 				92115F68286F391000F42700 /* JSONParameterEncoder.swift in Sources */,
+				92115F9B28707C6F00F42700 /* UserVM.swift in Sources */,
 				92115F75286FF96B00F42700 /* NetworkResponse.swift in Sources */,
 				92115F7A287009A900F42700 /* Repository.swift in Sources */,
 				92115F45286F165600F42700 /* AppDelegate.swift in Sources */,
 				92115F7C28700D8600F42700 /* Pull.swift in Sources */,
 				92115F6A286F39BC00F42700 /* NetworkRouter.swift in Sources */,
+				92115F9D287083B800F42700 /* UIImageViewExtension.swift in Sources */,
 				92115F86287045E200F42700 /* AppColors.swift in Sources */,
 				92115F8B287046B500F42700 /* UITableViewExtension.swift in Sources */,
 				92115F47286F165600F42700 /* SceneDelegate.swift in Sources */,

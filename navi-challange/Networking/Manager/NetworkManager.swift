@@ -114,4 +114,29 @@ struct NetworkManager {
             }
         }
     }
+    
+    func getImage(for url: String, completion: @escaping (_ imageData: Data?, _ error: String?) -> ()) {
+        router.request(.image(url: url)) { data, response, error in
+            guard error == nil else {
+                completion(nil, error!.localizedDescription)
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = NetworkResponse.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil, NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    completion(responseData, nil)
+                    
+                case .failure(let networkError):
+                    completion(nil, networkError)
+                }
+            }
+        }
+    }
 }
