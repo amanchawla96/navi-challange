@@ -22,6 +22,10 @@
 		92115F6D286F3B3E00F42700 /* URLSessionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F6C286F3B3E00F42700 /* URLSessionRouter.swift */; };
 		92115F71286FE43500F42700 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F70286FE43500F42700 /* NetworkManager.swift */; };
 		92115F73286FE58F00F42700 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F72286FE58F00F42700 /* GitHubAPI.swift */; };
+		92115F75286FF96B00F42700 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F74286FF96B00F42700 /* NetworkResponse.swift */; };
+		92115F782870045600F42700 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F772870045600F42700 /* User.swift */; };
+		92115F7A287009A900F42700 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F79287009A900F42700 /* Repository.swift */; };
+		92115F7C28700D8600F42700 /* Pull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F7B28700D8600F42700 /* Pull.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		92115F6C286F3B3E00F42700 /* URLSessionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionRouter.swift; sourceTree = "<group>"; };
 		92115F70286FE43500F42700 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		92115F72286FE58F00F42700 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		92115F74286FF96B00F42700 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		92115F772870045600F42700 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		92115F79287009A900F42700 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		92115F7B28700D8600F42700 /* Pull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pull.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 		92115F43286F165600F42700 /* navi-challange */ = {
 			isa = PBXGroup;
 			children = (
+				92115F762870044700F42700 /* Models */,
 				92115F59286F233100F42700 /* Networking */,
 				92115F48286F165600F42700 /* ViewController.swift */,
 				92115F58286F166F00F42700 /* Resources */,
@@ -146,8 +155,19 @@
 			isa = PBXGroup;
 			children = (
 				92115F70286FE43500F42700 /* NetworkManager.swift */,
+				92115F74286FF96B00F42700 /* NetworkResponse.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		92115F762870044700F42700 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92115F772870045600F42700 /* User.swift */,
+				92115F79287009A900F42700 /* Repository.swift */,
+				92115F7B28700D8600F42700 /* Pull.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +248,12 @@
 				92115F5B286F242600F42700 /* EndpointType.swift in Sources */,
 				92115F49286F165600F42700 /* ViewController.swift in Sources */,
 				92115F5F286F261600F42700 /* HTTPMethod.swift in Sources */,
+				92115F782870045600F42700 /* User.swift in Sources */,
 				92115F68286F391000F42700 /* JSONParameterEncoder.swift in Sources */,
+				92115F75286FF96B00F42700 /* NetworkResponse.swift in Sources */,
+				92115F7A287009A900F42700 /* Repository.swift in Sources */,
 				92115F45286F165600F42700 /* AppDelegate.swift in Sources */,
+				92115F7C28700D8600F42700 /* Pull.swift in Sources */,
 				92115F6A286F39BC00F42700 /* NetworkRouter.swift in Sources */,
 				92115F47286F165600F42700 /* SceneDelegate.swift in Sources */,
 				92115F64286F268F00F42700 /* ParameterEncoder.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 enum GitHubAPI {
     case user(username: String)
     case repos(username: String)
+    case repo(repo: String, username: String)
     case pulls(username: String, repo: String)
 }
 
@@ -34,17 +35,27 @@ extension GitHubAPI: EndpointType {
             return "users/\(username)"
         case .repos(let username):
             return "users/\(username)/repos"
+        case .repo(let repo, let username):
+            return "repos/\(username)/\(repo)"
         case .pulls(let username, let repo):
             return "repos/\(username)/\(repo)/pulls"
         }
     }
     
     var httpMethod: HTTPMethod {
-        return .get
+        switch self {
+        case .user(_), .repos(_), .repo(_, _), .pulls(_, _):
+            return .get
+        }
     }
     
     var task: HTTPTask {
-        return .request
+        switch self {
+        case .pulls(_, _):
+            return .requestParameters(bodyParameters: nil, urlParameters: ["state": "closed"])
+        default:
+            return .request
+        }
     }
     
     var headers: HTTPHeaders? {
