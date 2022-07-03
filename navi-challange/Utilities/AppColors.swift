@@ -43,6 +43,10 @@ struct AppColors {
         UIColor(red: 0.06, green: 0.06, blue: 0.06, alpha: 1.00)
     }
     
+    static var faintWhite: UIColor {
+        UIColor(red: 0.98, green: 0.98, blue: 0.99, alpha: 1.00)
+    }
+    
     static var primaryLabel: UIColor {
         UIColor(red: 0.08, green: 0.09, blue: 0.10, alpha: 1.00)
     }

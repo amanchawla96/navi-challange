@@ -37,6 +37,10 @@
 		92115F99287063D900F42700 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F98287063D900F42700 /* ProfileTableViewCell.swift */; };
 		92115F9B28707C6F00F42700 /* UserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F9A28707C6F00F42700 /* UserVM.swift */; };
 		92115F9D287083B800F42700 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92115F9C287083B800F42700 /* UIImageViewExtension.swift */; };
+		926BC70B287170B100F1E199 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BC70A287170B100F1E199 /* AppImages.swift */; };
+		926BC70D2871735F00F1E199 /* RepoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BC70C2871735F00F1E199 /* RepoHeaderView.swift */; };
+		926BC70F28717A4C00F1E199 /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BC70E28717A4C00F1E199 /* RepoTableViewCell.swift */; };
+		926BC7112871822D00F1E199 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926BC7102871822D00F1E199 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +76,10 @@
 		92115F98287063D900F42700 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		92115F9A28707C6F00F42700 /* UserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVM.swift; sourceTree = "<group>"; };
 		92115F9C287083B800F42700 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		926BC70A287170B100F1E199 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
+		926BC70C2871735F00F1E199 /* RepoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoHeaderView.swift; sourceTree = "<group>"; };
+		926BC70E28717A4C00F1E199 /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		926BC7102871822D00F1E199 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +112,8 @@
 		92115F43286F165600F42700 /* navi-challange */ = {
 			isa = PBXGroup;
 			children = (
-				92115F762870044700F42700 /* Models */,
 				92115F82287045BE00F42700 /* Utilities */,
+				92115F762870044700F42700 /* Models */,
 				92115F7D287044CF00F42700 /* Coordinator */,
 				92115F802870455B00F42700 /* Modules */,
 				92115F59286F233100F42700 /* Networking */,
@@ -226,6 +234,7 @@
 			children = (
 				92115F83287045D100F42700 /* AppFonts.swift */,
 				92115F85287045E200F42700 /* AppColors.swift */,
+				926BC70A287170B100F1E199 /* AppImages.swift */,
 				92115F872870460C00F42700 /* Extensions */,
 			);
 			path = Utilities;
@@ -237,6 +246,7 @@
 				92115F882870466C00F42700 /* UIViewExtension.swift */,
 				92115F8A287046B500F42700 /* UITableViewExtension.swift */,
 				92115F9C287083B800F42700 /* UIImageViewExtension.swift */,
+				926BC7102871822D00F1E199 /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,6 +273,8 @@
 			isa = PBXGroup;
 			children = (
 				92115F98287063D900F42700 /* ProfileTableViewCell.swift */,
+				926BC70C2871735F00F1E199 /* RepoHeaderView.swift */,
+				926BC70E28717A4C00F1E199 /* RepoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,15 +350,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				92115F71286FE43500F42700 /* NetworkManager.swift in Sources */,
+				926BC70F28717A4C00F1E199 /* RepoTableViewCell.swift in Sources */,
+				926BC70B287170B100F1E199 /* AppImages.swift in Sources */,
 				92115F6D286F3B3E00F42700 /* URLSessionRouter.swift in Sources */,
 				92115F66286F367E00F42700 /* URLParameterEncoder.swift in Sources */,
 				92115F61286F264900F42700 /* HTTPTask.swift in Sources */,
 				92115F73286FE58F00F42700 /* GitHubAPI.swift in Sources */,
 				92115F5B286F242600F42700 /* EndpointType.swift in Sources */,
 				92115F84287045D100F42700 /* AppFonts.swift in Sources */,
+				926BC7112871822D00F1E199 /* DateExtension.swift in Sources */,
 				92115F7F2870450400F42700 /* Coordinator.swift in Sources */,
 				92115F92287060EA00F42700 /* RepoVM.swift in Sources */,
 				92115F99287063D900F42700 /* ProfileTableViewCell.swift in Sources */,
+				926BC70D2871735F00F1E199 /* RepoHeaderView.swift in Sources */,
 				92115F8F2870476A00F42700 /* ProfileCoordinator.swift in Sources */,
 				92115F892870466C00F42700 /* UIViewExtension.swift in Sources */,
 				92115F49286F165600F42700 /* ProfileVC.swift in Sources */,

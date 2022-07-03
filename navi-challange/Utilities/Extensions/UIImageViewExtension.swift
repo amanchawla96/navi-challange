@@ -12,7 +12,9 @@ fileprivate var imageCache: [String: UIImage] = [:]
 
 extension UIImageView {
     
-    func setImage(for url: String) {
+    func setImage(for url: String, with placeholder: UIImage) {
+        self.image = placeholder
+        
         if let image = imageCache[url] {
             self.image = image
         } else {

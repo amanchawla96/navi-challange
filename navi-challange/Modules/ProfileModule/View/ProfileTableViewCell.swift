@@ -18,14 +18,14 @@ class ProfileTableViewCell: UITableViewCell {
     
     private var nameLbl: UILabel = {
         let lbl = UILabel()
-        lbl.font = AppFonts.semibold.with(size: 16)
+        lbl.font = AppFonts.semibold.with(size: 24)
         lbl.textColor = AppColors.primaryLabel
         return lbl
     }()
     
     private var usernameLbl: UILabel = {
         let lbl = UILabel()
-        lbl.font = AppFonts.semibold.with(size: 14)
+        lbl.font = AppFonts.semibold.with(size: 20)
         lbl.textColor = AppColors.secondaryLabel
         return lbl
     }()
@@ -35,16 +35,7 @@ class ProfileTableViewCell: UITableViewCell {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fillProportionally
-        stack.spacing = 4
-        return stack
-    }()
-    
-    private var userImageStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .fill
-        stack.distribution = .fillProportionally
-        stack.spacing = 16
+        stack.spacing = 0
         return stack
     }()
     
@@ -67,6 +58,12 @@ class ProfileTableViewCell: UITableViewCell {
         return stack
     }()
     
+    private var separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = AppColors.secondaryLabel
+        return view
+    }()
+    
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -80,19 +77,18 @@ class ProfileTableViewCell: UITableViewCell {
     
     //MARK: - Setup Subviews
     private func setupSubviews() {
-        addSubview(userImageStack)
+        addSubview(userImageView)
+        addSubview(userStack)
         addSubview(followStack)
+        addSubview(separatorView)
         
-        addConstraint(with: "H:|-16-[v0]-16-|", views: userImageStack)
+        addConstraint(with: "H:|-16-[v0(80)]-12-[v1]-16-|", views: userImageView, userStack)
         addConstraint(with: "H:|-16-[v0]-(>=16)-|", views: followStack)
+        addConstraint(with: "H:|-16-[v0]-16-|", views: separatorView)
         
-        addConstraint(with: "V:|-8-[v0]-8-[v1]-8-|", views: userImageStack, followStack)
+        addConstraint(with: "V:|-8-[v0(80)]-12-[v1]-8-[v2(1)]|", views: userImageView, followStack, separatorView)
         
-        userImageStack.addArrangedSubview(userImageView)
-        userImageStack.addArrangedSubview(userStack)
-        
-        userImageView.addConstraint(with: "H:[v0(54)]", views: userImageView)
-        userImageView.addConstraint(with: "V:[v0(54)]", views: userImageView)
+        userStack.centerYAnchor.constraint(equalTo: userImageView.centerYAnchor).isActive = true
         
         userStack.addArrangedSubview(nameLbl)
         userStack.addArrangedSubview(usernameLbl)
@@ -103,17 +99,20 @@ class ProfileTableViewCell: UITableViewCell {
     
     //MARK: - Populate
     func populate(viewModel: UserVM) {
-        userImageView.setImage(for: viewModel.image)
+        userImageView.setImage(for: viewModel.image, with: AppImages.profilePlaceholder)
+        
         nameLbl.text = viewModel.name
+        
         usernameLbl.text = viewModel.username
         
         followingLbl.attributedText = populateFollow(with: viewModel.following, for: "Following")
+        
         followersLbl.attributedText = populateFollow(with: viewModel.followers, for: "Followers")
     }
     
     private func populateFollow(with count: Int, for string: String) -> NSMutableAttributedString {
-        let primaryAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: AppColors.primaryLabel, .font: AppFonts.medium.with(size: 14)]
-        let secondaryAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: AppColors.secondaryLabel, .font: AppFonts.regular.with(size: 14)]
+        let primaryAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: AppColors.primaryLabel, .font: AppFonts.medium.with(size: 16)]
+        let secondaryAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: AppColors.secondaryLabel, .font: AppFonts.regular.with(size: 16)]
         
         let countString = NSMutableAttributedString(string: "\(count)", attributes: primaryAttributes)
         let string = NSAttributedString(string: " \(string)", attributes: secondaryAttributes)

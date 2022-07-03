@@ -80,4 +80,8 @@ extension ProfileVM {
         guard let user = user else { return nil }
         return UserVM(user: user)
     }
+    
+    var name: String {
+        user?.name ?? ""
+    }
 }

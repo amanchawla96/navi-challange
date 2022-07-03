@@ -14,11 +14,14 @@ class ProfileVC: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .singleLine
+        tableView.separatorStyle = .none
         tableView.backgroundColor = AppColors.background
         tableView.sectionHeaderTopPadding = .zero
         
         tableView.register(with: ProfileTableViewCell.self)
+        tableView.register(with: RepoTableViewCell.self)
+        
+        tableView.registerHeaderFooterView(with: RepoHeaderView.self)
         
         return tableView
     }()
@@ -61,6 +64,17 @@ extension ProfileVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard section == 1 else { return .zero }
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 1 else { return nil }
+        let cell = tableView.dequeueHeaderFooterView(with: RepoHeaderView.self)
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
@@ -69,7 +83,9 @@ extension ProfileVC: UITableViewDataSource, UITableViewDelegate {
             cell.populate(viewModel: viewModel)
             return cell
         default:
-            return UITableViewCell()
+            let cell = tableView.dequeueCell(withIdentifier: RepoTableViewCell.self, indexPath: indexPath)
+            cell.populate(viewModel: viewModel.createRepoVM(for: indexPath))
+            return cell
         }
     }
     
@@ -85,6 +101,15 @@ extension ProfileVC: ProfileVMDelegate {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+}
+
+extension ProfileVC: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = (scrollView.contentOffset.y + scrollView.contentInset.top)
+        self.title = offsetY > -40  ? viewModel.name : ""
     }
     
 }
