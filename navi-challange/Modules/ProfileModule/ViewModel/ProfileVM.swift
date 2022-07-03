@@ -72,8 +72,8 @@ extension ProfileVM {
         repos[indexPath.row]
     }
     
-    func createRepoVM(for indexPath: IndexPath) -> RepoVM {
-        RepoVM(repo: repo(at: indexPath))
+    func createRepoVM(for indexPath: IndexPath) -> RepoCellVM {
+        RepoCellVM(repo: repo(at: indexPath))
     }
     
     func createUserVM() -> UserVM? {
@@ -84,4 +84,14 @@ extension ProfileVM {
     var name: String {
         user?.name ?? ""
     }
+}
+
+//MARK: - Navigation
+extension ProfileVM {
+    
+    func openRepo(at indexPath: IndexPath) {
+        let name = repo(at: indexPath).name
+        coordinator?.openRepo(with: name)
+    }
+    
 }
