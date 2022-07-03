@@ -12,6 +12,7 @@ enum GitHubAPI {
     case repos(username: String)
     case repo(repo: String, username: String)
     case pulls(username: String, repo: String)
+    case image(url: String)
 }
 
 extension GitHubAPI: EndpointType {
@@ -39,12 +40,16 @@ extension GitHubAPI: EndpointType {
             return "repos/\(username)/\(repo)"
         case .pulls(let username, let repo):
             return "repos/\(username)/\(repo)/pulls"
+        case .image(let url):
+            return url
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
         case .user(_), .repos(_), .repo(_, _), .pulls(_, _):
+            return .get
+        case .image(_):
             return .get
         }
     }
