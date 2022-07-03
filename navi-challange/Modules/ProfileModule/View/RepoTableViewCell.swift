@@ -101,7 +101,7 @@ class RepoTableViewCell: UITableViewCell {
     }
     
     //MARK: - Populate
-    func populate(viewModel: RepoVM) {
+    func populate(viewModel: RepoCellVM) {
         titleLbl.text = viewModel.title
         
         dateLbl.text = viewModel.createdAt.timeAgoDisplay()

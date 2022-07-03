@@ -12,4 +12,5 @@ struct AppImages {
     
     static let profilePlaceholder = UIImage(named: "profile-placeholder")!
     
+    static let merge = UIImage(named: "merge")!
 }

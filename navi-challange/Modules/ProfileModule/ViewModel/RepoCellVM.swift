@@ -1,5 +1,5 @@
 //
-//  RepoVM.swift
+//  RepoCellVM.swift
 //  navi-challange
 //
 //  Created by Aman Chawla on 02/07/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepoVM {
+struct RepoCellVM {
     
     //MARK: - Variables & Constents
     private var repo: Repository
@@ -20,7 +20,7 @@ struct RepoVM {
 }
 
 //MARK: - Getters
-extension RepoVM {
+extension RepoCellVM {
     
     var title: String {
         repo.name
@@ -28,7 +28,7 @@ extension RepoVM {
     
     var createdAt: Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
         return dateFormatter.date(from: repo.createdAt)!

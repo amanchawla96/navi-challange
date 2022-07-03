@@ -91,7 +91,7 @@ extension ProfileVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 1 else { return }
-        
+        viewModel.openRepo(at: indexPath)
     }
 }
 

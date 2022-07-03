@@ -24,4 +24,20 @@ class ProfileCoordinator: Coordinator {
         controller.viewModel = ProfileVM(coordinator: self)
         navigationController.pushViewController(controller, animated: false)
     }
+    
+    func openRepo(with name: String) {
+        let child = RepoCoordinator(for: name, navigationController: navigationController)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
+    }
+    
+    func childDidFinish(_ child: Coordinator) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
+    }
 }

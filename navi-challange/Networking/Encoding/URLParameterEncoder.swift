@@ -22,7 +22,12 @@ struct URLParameterEncoder: ParameterEncoder {
             for (key, value) in parameters {
                 let queryItem = URLQueryItem(name: key,
                                              value: "\(value)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))
-                urlComponents.queryItems?.append(queryItem)
+                
+                if let _ = urlComponents.queryItems {
+                    urlComponents.queryItems?.append(queryItem)
+                } else {
+                    urlComponents.queryItems = [queryItem]
+                }
             }
             
             urlRequest.url = urlComponents.url
